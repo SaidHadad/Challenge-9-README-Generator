@@ -1,17 +1,18 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
-// const generateReadme = require('./Develop/utils/generateMarkdown.ks')
-// const {name of functions} this if i need to writefile or copyfile.
+const { copyFile, writeFile } = require('./utils/generateSite.js');
+const generateReadme = require('./generateMarkdown.js');
 
 // TODO: Create an array of questions for user input
-// first function for the proyect name and description
-const readmeHeader = () => {
+// function for the table of contents information. This includes:
+// About, Built with, Getting Started, Usage, Licence and Contact.
+const tableOfContents = () => {
   console.log(`
   --------------------------------------------
     Welcome to profesional README generator
   --------------------------------------------
   `);
-  return inquirer.prompt([
+  return inquirer.prompt ([
     {
       type: 'input',
       name: 'name',
@@ -39,18 +40,7 @@ const readmeHeader = () => {
           return false;
         }
       }
-    }
-  ]);
-};
-// second function for the table of contents information. This includes:
-// About, Built with, Getting Started, Usage, Licence and Contact.
-const tableOfContents = () => {
-  console.log(`
----------------------
-  Table of Contents
----------------------
-`);
-  return inquirer.prompt ([
+    },
     {
       type: 'confirm',
       name: 'confirmAbout',
@@ -80,8 +70,8 @@ const tableOfContents = () => {
       type: 'input',
       name: 'inputSS',
       message: 'Whats the name and extention of your image?',
-      when: ({confirmAbout}) => {
-        if (confirmAbout) {
+      when: ({confirmImage}) => {
+        if (confirmImage) {
           return true;
         }
         else {
@@ -129,14 +119,14 @@ const tableOfContents = () => {
     },
     {
       type: 'confirm',
-      name: 'confirmLicence',
+      name: 'confirmLicense',
       message: 'Would you like to add a Licence to the README?',
       default: false
     },
     {
       type: 'list',
-      name: 'listLicence',
-      message: 'Select the licence:',
+      name: 'listLicense',
+      message: 'Select the license:',
       choices: ['Academic Free License v3.0',
                 'Apache license 2.0',
                 'Artistic license 2.0',
@@ -171,8 +161,8 @@ const tableOfContents = () => {
                 'University of Illinois/NCSA Open Source License',
                 'The Unlicense',
                 'zLib License'],
-      when: ({confirmGettingStarted}) => {
-        if (confirmGettingStarted) {
+      when: ({confirmLicense}) => {
+        if (confirmLicense) {
           return true;
         }
         else {
@@ -190,8 +180,8 @@ const tableOfContents = () => {
       type: 'input',
       name: 'inputContactName',
       message: 'What is your name?:',
-      when: ({confirmGettingStarted}) => {
-        if (confirmGettingStarted) {
+      when: ({confirmContact}) => {
+        if (confirmContact) {
           return true;
         }
         else {
@@ -203,8 +193,8 @@ const tableOfContents = () => {
       type: 'input',
       name: 'inputContactEmail',
       message: 'What is your email?:',
-      when: ({confirmGettingStarted}) => {
-        if (confirmGettingStarted) {
+      when: ({confirmContact}) => {
+        if (confirmContact) {
           return true;
         }
         else {
@@ -216,8 +206,8 @@ const tableOfContents = () => {
       type: 'input',
       name: 'inputContacGit',
       message: 'What is your GitHub username?:',
-      when: ({confirmGettingStarted}) => {
-        if (confirmGettingStarted) {
+      when: ({confirmContact}) => {
+        if (confirmContact) {
           return true;
         }
         else {
@@ -238,6 +228,7 @@ const tableOfContents = () => {
   })
 };
 
+// function to add and manage multiple proyect contributors
 const proyectContributors = contributorsData => {
   if (!contributorsData.contributors) {
     contributorsData.contributors = [];
@@ -284,19 +275,29 @@ const proyectContributors = contributorsData => {
       return proyectContributors(contributorsData);
     }
     else {
-      console.log(contributorsData);
       return contributorsData;
     }
   })
 };
+
 // TODO: Create a function to write README file
 // function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
 function init() {
-  readmeHeader()
-    .then(tableOfContents);
-}
+    tableOfContents()
+    .then(contributorsData => {
+      console.log(contributorsData);
+      return generateReadme(contributorsData);
+    })
+    .then(pageREADME => {
+      console.log(pageREADME);
+      return writeFile(pageREADME);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
 
 // Function call to initialize app
 init();
