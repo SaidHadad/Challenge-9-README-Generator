@@ -5,7 +5,8 @@
   
   <!-- DESCRIPTION -->
   <p align="center">
-  Taking user input generates a profesional looking README for a proyect
+  Taking user input generates a profesional looking README for a proyect <br>
+  Video Link: https://drive.google.com/file/d/1C5emR8-eNGlwJnMPp_DbfGrbKPkUsdvA/view?usp=sharing
   </p>
   <!-- TABLE OF CONTENTS -->
   <details open="open">
@@ -30,7 +31,7 @@
   <!-- ABOUT THE PROJECT -->
   ## About The Project
 
-  ![TimeTable](./Develop/images/Capture.JPG)
+  ![TimeTable](./Develop/images/Capture.JPG) <br>
   9th Challenge for the University of Toronto Coding Bootcamp
   
   ## Built With

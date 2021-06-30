@@ -48,7 +48,7 @@ const generateAbout = (aboutText, inputSS) => {
   <!-- ABOUT THE PROJECT -->
   ## About The Project
 
-  ![TimeTable](./Develop/images/${inputSS})
+  ![TimeTable](./Develop/images/${inputSS})<br>
   ${aboutText}`
 };
 
