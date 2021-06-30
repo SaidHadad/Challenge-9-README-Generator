@@ -5,7 +5,7 @@
   
   <!-- DESCRIPTION -->
   <p align="center">
-  Taking user input generates a profesional looking README for a proyect <br>
+  Taking user input generates a profesional looking README for a project <br>
   link to the video: https://drive.google.com/file/d/1vPPgn5DrAPh6P8BNmW-JkDiVFa1q0YbY/view?usp=sharing
   </p>
   <!-- TABLE OF CONTENTS -->
