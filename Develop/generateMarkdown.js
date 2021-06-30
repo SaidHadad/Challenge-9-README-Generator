@@ -11,13 +11,35 @@ const generateAbout = (aboutText, inputSS) => {
   `
 };
 
+const generateContributors = mvps => {
+  return `${mvps.map(({ contributorName, contributorGit }) => {
+    return `
+    Name: ${contributorName}
+    GitHub: ${contributorGit}
+    `;})
+  .join('')}`;
+}
+
 const tocAbout = aboutContent => {
-  if(aboutContent = true){
-    return '';
+  console.log(aboutContent);
+  if(aboutContent == true){
+    return`<li><a href="#about-the-project">About The Project</a></li>`
   }
-  return`
-  <li><a href="#about-the-project">About The Project</a></li>
-  `
+  return '';
+};
+
+const tocGettingStarted = gettingStartedContent => {
+  console.log(gettingStartedContent);
+  if(gettingStartedContent == true){
+    return`<li>
+    <a href="#getting-started">Getting Started</a>
+    <ul>
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#installation">Installation</a></li>
+    </ul>
+    </li>`
+  }
+  return '';
 };
 
 // TODO: Create a function to generate markdown for README
@@ -28,27 +50,6 @@ function generateMarkdown(data) {
 };
 
 module.exports = templateData => {
-  // const projectInfo = {
-  //   name: templateData.name,
-  //   description: templateData.description,
-  //   about: templateData.about,
-  //   image: templateData.inputSS
-  // };
-
-  // const projectSpecifications = {
-  //   languages: templateData.languages,
-  //   prerequisites: templateData.prerequisites,
-  //   installation: templateData.installation,
-  //   license: templateData.listLicense
-  // };
-
-  // const projectCollaborators = {
-  //   listLicense: templateData.listLicense,
-  //   contactname: templateData.InputContactName,
-  //   contactemail: templateData.ContactEmail,
-  //   contactgit: templateData.ContactGit
-  // };
-
   const { contributors, about, ...name } = templateData;
   console.log(templateData);
   
@@ -59,20 +60,14 @@ module.exports = templateData => {
   <!-- DESCRIPTION -->
   <p align="center">
   ${name.description}
-  
+  </p>
   <!-- TABLE OF CONTENTS -->
   <details open="open">
   <summary>Table of Contents</summary>
   <ol>
-  ${tocAbout()}
+  ${tocAbout(name.confirmAbout)}
   <li><a href="#built-with">Built With</a></li>
-  <li>
-  <a href="#getting-started">Getting Started</a>
-  <ul>
-  <li><a href="#prerequisites">Prerequisites</a></li>
-  <li><a href="#installation">Installation</a></li>
-  </ul>
-  </li>
+  ${tocGettingStarted(name.confirmGettingStarted)}
   <li><a href="#contributing">Contributing</a></li>
   <li><a href="#license">License</a></li>
   <li><a href="#contact">Contact</a></li>
@@ -80,36 +75,30 @@ module.exports = templateData => {
   </ol>
   </details>
   
-  ${generateAbout(about, name.confirmAbout)}
+  ${generateAbout(about, name.inputSS)}
   
   ### Built With
-  
+
   ${name.languages}
   
   <!-- GETTING STARTED -->
   ## Getting Started
-  Look for a city you are intereseted in and hit SEARCH!!
-  It's that easy ;)
   
   ### Prerequisites
-  This is an example of how to list things you need to use the software and how to install them.
-  * npm
-  sh
-  npm install npm@latest -g
-  
-  
+
+  ${name.preRequisites}
+
   ### Installation 
-  ## Instalation
+
+  ${name.installation}
   
   <!-- CONTRIBUTING -->
   ## Contributing
-  
-  
+  ${generateContributors(contributors)}
   <!-- LICENSE -->
   ## License
-  
-  Free to use, share the knowledge!!.
-  
+
+  ${name.listLicense}
   
   <!-- CONTACT -->
   ## Contact

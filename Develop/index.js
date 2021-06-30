@@ -90,7 +90,7 @@ const tableOfContents = () => {
     {
       type: 'checkbox',
       name: 'languages',
-      choices: ['JavaScript', 'HTML', 'CSS', 'ES6', 'JQuery', 'Bootstrap', 'Node']
+      choices: ['JavaScript ', 'HTML ', 'CSS ', 'ES6 ', 'JQuery ', 'Bootstrap ', 'Node ']
     },
     {
       type: 'confirm',

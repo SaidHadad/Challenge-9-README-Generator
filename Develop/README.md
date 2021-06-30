@@ -1,24 +1,24 @@
 
   <!-- PROJECT TITE -->
-  <h1 align="center">said</h1>
+  <h1 align="center">Profesional README generator</h1>
   
   <!-- DESCRIPTION -->
   <p align="center">
-  said
-  
+  Generates a profesional looking README based on user Input
+  </p>
   <!-- TABLE OF CONTENTS -->
   <details open="open">
   <summary>Table of Contents</summary>
   <ol>
-  
+  <li><a href="#about-the-project">About The Project</a></li>
   <li><a href="#built-with">Built With</a></li>
   <li>
-  <a href="#getting-started">Getting Started</a>
-  <ul>
-  <li><a href="#prerequisites">Prerequisites</a></li>
-  <li><a href="#installation">Installation</a></li>
-  </ul>
-  </li>
+    <a href="#getting-started">Getting Started</a>
+    <ul>
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#installation">Installation</a></li>
+    </ul>
+    </li>
   <li><a href="#contributing">Contributing</a></li>
   <li><a href="#license">License</a></li>
   <li><a href="#contact">Contact</a></li>
@@ -27,37 +27,41 @@
   </details>
   
   
+  <!-- ABOUT THE PROJECT -->
+  ## About The Project
+
+  ![TimeTable](./images/Capture.JPG)
+  9th Challenge for the University Of Toronto Coding Bootcamp
+  
   
   ### Built With
-  
-  
-  * [JavaScript]
-  
+
+  JavaScript,HTML,ES6,Node
   
   <!-- GETTING STARTED -->
   ## Getting Started
-  Look for a city you are intereseted in and hit SEARCH!!
-  It's that easy ;)
   
   ### Prerequisites
-  This is an example of how to list things you need to use the software and how to install them.
-  * npm
-  sh
-  npm install npm@latest -g
-  
-  
+
+  node, terminal
+
   ### Installation 
-  ## Instalation
+
+  navigate to the folder where index.js is located and run node index
   
   <!-- CONTRIBUTING -->
   ## Contributing
   
-  
+    Name: nadir
+    GitHub: nadirhadad
+    
+    Name: fer
+    GitHub: fernandasariñana
+    
   <!-- LICENSE -->
   ## License
-  
-  Free to use, share the knowledge!!.
-  
+
+  Academic Free License v3.0
   
   <!-- CONTACT -->
   ## Contact
