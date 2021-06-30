@@ -30,7 +30,7 @@
   <!-- ABOUT THE PROJECT -->
   ## About The Project
 
-  ![TimeTable](.Develop/images/Capture.JPG)
+  ![Logo](./Develop/images/Capture.JPG) <br>
   9th Challenge for the University of Toronto Coding Bootcamp
   
   ## Built With
