@@ -30,7 +30,7 @@ const tableOfContents = () => {
     {
       type: 'input',
       name: 'description',
-      message: 'Provide a description of your project (required)',
+      message: 'Provide a description of your project (REQUIRED)',
       validate: descriptionInput => {
         if (descriptionInput) {
           return true;
@@ -62,9 +62,17 @@ const tableOfContents = () => {
     },
     {
       type: 'confirm',
-      name: 'confirmSS',
+      name: 'confirmImage',
       message: 'Would you like to use an image to represent the project (save it in utils folder)?',
-      default: true
+      default: true,
+      when: ({confirmAbout}) => {
+        if (confirmAbout) {
+          return true;
+        }
+        else {
+          return false;
+        }
+      }
     },
     {
       type: 'input',
@@ -82,7 +90,6 @@ const tableOfContents = () => {
     {
       type: 'checkbox',
       name: 'languages',
-      message: 'Select the languages used on your project',
       choices: ['JavaScript', 'HTML', 'CSS', 'ES6', 'JQuery', 'Bootstrap', 'Node']
     },
     {
@@ -225,7 +232,11 @@ const tableOfContents = () => {
     if (answers.confirmifContributors) {
       return proyectContributors(answers);
     }
-  })
+    else {
+      const contributorsData = answers;
+      return contributorsData;
+    }
+  });
 };
 
 // function to add and manage multiple proyect contributors
@@ -287,12 +298,13 @@ const proyectContributors = contributorsData => {
 function init() {
     tableOfContents()
     .then(contributorsData => {
-      console.log(contributorsData);
       return generateReadme(contributorsData);
     })
     .then(pageREADME => {
-      console.log(pageREADME);
       return writeFile(pageREADME);
+    })
+    .then(writeFileResponse => {
+      console.log(writeFileResponse);
     })
     .catch(err => {
       console.log(err);
