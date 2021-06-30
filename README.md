@@ -1,12 +1,11 @@
 
   <!-- PROJECT TITE -->
-  [![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   <h1 align="center">Profesional README Generator</h1>
   
   <!-- DESCRIPTION -->
   <p align="center">
-  Taking user input generates a profesional looking README for a project <br>
-  link to the video: https://drive.google.com/file/d/1vPPgn5DrAPh6P8BNmW-JkDiVFa1q0YbY/view?usp=sharing
+  Taking user input generates a profesional looking README for a proyect
   </p>
   <!-- TABLE OF CONTENTS -->
   <details open="open">
@@ -31,7 +30,7 @@
   <!-- ABOUT THE PROJECT -->
   ## About The Project
 
-  ![Logo](./Develop/images/Capture.JPG) <br>
+  ![TimeTable](./Develop/images/Capture.JPG)
   9th Challenge for the University of Toronto Coding Bootcamp
   
   ## Built With
@@ -55,13 +54,13 @@
   ## Contributing
   
     Name: Lukas Himsel
-    GitHub: https://github.com/lukas-h
+    GitHub: https://github.com/lukas-hc
     
   <!-- LICENSE -->
   
   ## License
 
-  Do What The F*ck You Want To Public License
+  MIT
   
   <!-- CONTACT -->
   
